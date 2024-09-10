@@ -4,10 +4,10 @@
 void startProgram();
 
 int main() {
-	setlocale(LC_ALL, "Russian"); 
-	srand(time(NULL)); 
+    setlocale(LC_ALL, "Russian"); 
+    srand(time(NULL)); 
     
     startProgram();
 
-	return 0; 
+    return 0; 
 }
