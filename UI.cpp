@@ -2,6 +2,7 @@
 #include <cmath>
 #include <locale>
 #include <string> 
+#include <string.h>
 #include <stdexcept>
 #include "CurrencyPairs.h"
 #include "User.h"
@@ -50,7 +51,9 @@ private:
         std::cout << std::endl;
 
         try {
-            if (atof(amount.c_str()) / pow (10, amount.size() - 1) < 1) {
+            size_t stringSize = strlen(amount.c_str()); 
+            for (int i = 0; i < stringSize; ++i) {
+                if ((int)amount.c_str()[i] < 48 || (int)amount.c_str()[i] > 59) 
                 throw std::invalid_argument("Вы ввели некорректное значение суммы для обмена.\n");
             }
             user.selectPairToExchange(pair, atof(amount.c_str()));
